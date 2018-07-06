@@ -15,16 +15,10 @@ class mathematics
 	{
 		System.out.println("Inside default constructor");
 	}
-	mathematics (int a)
+	mathematics (int a, int...b)
 	{
-		System.out.println("Inside parameterized constructor");
-	}
-	mathematics (int a,int b)
-	{
-		System.out.println("Inside overloaded constructor");
-	}
-	private mathematics(int a,int b, int c)
-	{
-		System.out.println("inside private constructor");
+		for(int x:b)
+			System.out.println(x);
+		System.out.println("Inside varag parameterized constructor");
 	}
 }
