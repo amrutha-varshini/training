@@ -21,5 +21,11 @@ public class keyword
 					continue nextloop;
 				else
 					System.out.println(a[i][j]+","+i+","+j);
+		for(i=0;i<3;i++)
+			for(j=0;j<3;j++)
+				if(a[i][j]==3)
+					continue;
+				else
+					System.out.println(a[i][j]+","+i+","+j);
 	}
 }
