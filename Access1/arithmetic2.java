@@ -1,48 +1,39 @@
-package Access1;
-
 public class arithmetic2
 {
-	private int a;
-	public int b;
-	int c;
-	protected int d;
-	private int add(int a, int b)
+	public static void main(String[] args)
 	{
-		return a+b;
+		B a  =B.createB();
+		System.out.println(a.a);
 	}
-	public int sub(int a, int b)
+	static 
 	{
-		return a-b;
+		System.out.println("arith2 stat block");
 	}
-	protected int mul(int a,int b)
+	
+}
+class A
+{
+	
+	static 
 	{
-		return a*b;
-	}
-	int div(int a,int b)
-	{
-		return a/b;
+		System.out.println("A stat block");
 	}
 }
-class arithmetic3
+class B extends A
 {
-	private int a;
-	public int b;
-	int c;
-	protected int d;
-	private int add(int a, int b)
+	
+	int a;
+	static B createB()
 	{
-		return a+b;
+		B b  =new B();
+		return b;
 	}
-	public int sub(int a, int b)
+	abstract B()
 	{
-		return a-b;
+		a=1;
 	}
-	protected int mul(int a,int b)
+	static 
 	{
-		return a*b;
-	}
-	int div(int a,int b)
-	{
-		return a/b;
+		System.out.println("B stat block");
 	}
 }

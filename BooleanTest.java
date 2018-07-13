@@ -1,11 +1,9 @@
-//CTE for the program
+import Access1.*;
 
 public class BooleanTest
 {
 	public static void main(String[] args)
 	{
-		boolean a=true;
-		a=~(a);
-		System.out.println(a);
+		Access1.Main.mmain();
 	}
 }

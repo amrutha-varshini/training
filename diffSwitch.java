@@ -5,9 +5,9 @@ public class diffSwitch
 	public static void main(String[] args)
 	{
 		byte a=10;
-		int b=0;
+		int b=97;
 		char c='a';
-		switch(b)
+		switch(a)
 		{
 			case 256:System.out.println("works!!");
 				break;

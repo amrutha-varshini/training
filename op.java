@@ -2,29 +2,31 @@ public class op
 {
 	public static void main(String[] args)
 	{
-		int a=10,b=5;
-		boolean c=true,d=false;
+		op c=new op();
+		op d=new op();
+		//char e='6';
+		//int c=10,d=5;
+		//boolean c=true,d=false;
 		
 		//arithmetic operator
-		
-		System.out.println(a+b);
-		System.out.println(a-b);
-		System.out.println(a*b);
-		System.out.println(a/b);
-		System.out.println(a%b);
-		System.out.println(a++);
-		System.out.println(++a);
-		System.out.println(b++);
-		System.out.println(++b);
+		System.out.println(c+d);
+		System.out.println(c-d);
+		System.out.println(c*d);
+		System.out.println(c/d);
+		System.out.println(c%d);
+		System.out.println(c++);
+		System.out.println(++c);
+		System.out.println(d++);
+		System.out.println(++d);
 		
 		//relational operator
 		
-		System.out.println(a==b);
-		System.out.println(a!=b);
-		System.out.println(a<b);
-		System.out.println(a<=b);
-		System.out.println(a>b);
-		System.out.println(a>=b);
+		System.out.println(c==d);
+		System.out.println(c!=d);
+		System.out.println(c<d);
+		System.out.println(c<=d);
+		System.out.println(c>d);
+		System.out.println(c>=d);
 		
 		//logical operator
 		
@@ -33,16 +35,16 @@ public class op
 		System.out.println(!c);
 		
 		//bitwise operator
-		System.out.println(a&b);
-		System.out.println(a|b);
-		System.out.println(~a);
-		System.out.println(a^b);
-		System.out.println(a>>2);
-		System.out.println(a<<2);
-		System.out.println(a>>>2);
+		System.out.println(c&d);
+		System.out.println(c|d);
+		System.out.println(~c);
+		System.out.println(c^d);
+		System.out.println(c>>2);
+		System.out.println(c<<2);
+		System.out.println(c>>>2);
 		
 		//ternary operator
-		int e=(a>b)?a:b;
+		int f=(c>d)?c:d;
 		System.out.println(e);
 	}
 }
