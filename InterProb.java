@@ -2,17 +2,14 @@ abstract class A
 {
 	abstract void show();
 }
-interface B
+interface B1
 {
 	default void show()
 	{
 		System.out.println("hi");
 	}
 }
-interface B1 extends B
-{
-}
-interface B2 extends B
+interface B2
 {
 	default void show()
 	{
@@ -21,6 +18,10 @@ interface B2 extends B
 }
 class C implements B1, B2
 {
+	public void show()
+	{
+		B1.super.show();
+	}
 }
 public class InterProb
 {
