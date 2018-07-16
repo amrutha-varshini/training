@@ -1,4 +1,5 @@
-abstract class A
+//CTE
+abstract class B2
 {
 	abstract void show();
 }
@@ -7,13 +8,6 @@ interface B1
 	default void show()
 	{
 		System.out.println("hi");
-	}
-}
-class B2
-{
-	public void show()
-	{
-		System.out.println("hello");
 	}
 }
 class C extends B2 implements B1
