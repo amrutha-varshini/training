@@ -1,13 +1,31 @@
-//CTE
-abstract class B2
+class A
 {
-	abstract void show();
+	void display()
+	{
+		System.out.println("hi");
+	}
+	/*static void display(A a)
+	{
+		System.out.println("static hi");
+	}*///CTE
 }
-public class InterProb
+class InterProb
 {
 	public static void main(String[] args)
 	{
-		B2 c=()->{System.out.println("hi");};
-		c.show();
+		I i=A::display;
+		A a1=new A();
+		i.show(a1);
+	}
+}
+interface I
+{
+	void show(A a);
+}
+class A1 extends A
+{
+	void display()
+	{
+		System.out.println("hello");
 	}
 }
