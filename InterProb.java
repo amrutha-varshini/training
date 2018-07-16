@@ -9,25 +9,22 @@ interface B1
 		System.out.println("hi");
 	}
 }
-interface B2
+class B2
 {
-	default void show()
+	public void show()
 	{
 		System.out.println("hello");
 	}
 }
-class C implements B1, B2
+class C extends B2 implements B1
 {
-	public void show()
-	{
-		B1.super.show();
-	}
+	
 }
 public class InterProb
 {
 	public static void main(String[] args)
 	{
-		C c=new C();
+		B1 c=new C();
 		c.show();
 	}
 }
