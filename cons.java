@@ -1,14 +1,16 @@
 public class cons
 {
+	
+	
 	public static void main(String[] args)
 	{
-		mathematics m1=new mathematics();
-		mathematics m2=new mathematics(2);
-		mathematics m3=new mathematics(2,3);
-		mathematics m4=new mathematics(2,3,4);//CTE
+		mathematics a=new mathematics();
+		a.display();
 	}
 }
-class mathematics
+interface OP
+{
+	class mathematics
 {
 	int op1,op2;
 	mathematics ()
@@ -21,4 +23,15 @@ class mathematics
 			System.out.println(x);
 		System.out.println("Inside varag parameterized constructor");
 	}
+	void display()
+	{
+		class A
+		{
+			private void display1()
+			{
+				System.out.println("hi");
+			}
+		}
+	}
+}
 }
