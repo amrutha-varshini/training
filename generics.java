@@ -3,7 +3,7 @@ public class generics
 	public static void main(String[] args)
 	{
 		A a1=new A();
-		a1.getT(5);
+		a1.<Integer>getT(5);
 	}
 }
 class A
