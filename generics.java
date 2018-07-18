@@ -4,17 +4,14 @@ public class generics
 	{
 		B b=new B();
 		C c=new C();
-		A a1=new A(b);
-		A a2=new A(c);
+		A<B> a1=new A<>();
+		A<C> a2=new A<>();
+		A a3=a1;
 	}
 }
 class A<T>
 {
 	T t;
-	A(T t)
-	{
-		this.t=t;
-	}
 	T getT ()
 	{
 		return this.t;
