@@ -1,24 +1,27 @@
+import java.io.*;
 class except
 {
-	private int a;
 	public static void main(String[] args)
 	{
-		try
-		{
-			except1 e=new except1();
+			except e=new except();
 			e.test();
-		}
-		catch (Exception e)
+	}
+	void test() 
+	{
+		try(FileInputStream fin = new FileInputStream("AA.class"))
 		{
-			System.out.println("inside main catch");
-			System.out.println(e);
+			except1 a=new except1();
+			a.initCause(new ArithmeticException());
+			System.out.println("inside try1");
+			throw a;
+		}
+		catch (Exception | except1 e)
+		{
+			System.out.println("inside 1 catch");
+			System.out.println(e.getCause());
 		}
 	}
 }
-class except1
+class except1 extends Throwable
 {
-	void test() throws NoSuchFieldException
-	{
-		throw new NoSuchFieldException("its me");
-	}
 }
