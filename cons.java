@@ -1,37 +1,30 @@
 public class cons
 {
-	
-	
 	public static void main(String[] args)
 	{
-		mathematics a=new mathematics();
-		a.display();
+		B b=new B();
+		b.display();
 	}
 }
-interface OP
+class OP
 {
-	class mathematics
+	
+}
+interface OP1
 {
-	int op1,op2;
-	mathematics ()
-	{
-		System.out.println("Inside default constructor");
-	}
-	mathematics (int a, int...b)
-	{
-		for(int x:b)
-			System.out.println(x);
-		System.out.println("Inside varag parameterized constructor");
-	}
+	default void display()
+	{}
+}
+class B extends OP
+{
 	void display()
 	{
 		class A
 		{
-			private void display1()
+			void display()
 			{
-				System.out.println("hi");
+				System.out.println("inside B");
 			}
 		}
 	}
-}
 }

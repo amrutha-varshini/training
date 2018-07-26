@@ -375,7 +375,110 @@ class data_type1
 		System.out.println(d);//can't assign null to primitive variables.CTE
 		System.out.println(c);//can't assign null to primitive variables.CTE
 		System.out.println(bb);//can't assign null to primitive variables.CTE*/
-			
+		
+		/*b=127;
+		s=127;
+		i=127;
+		l=127;
+		c=127;
+		f=127;
+		d=127;
+		
+		b=s;
+		b=i;
+		b=l;
+		b=c;
+		b=f;
+		b=d;
+		
+		b=127;
+		s=127;
+		i=127;
+		l=127;
+		c=127;
+		f=127;
+		d=127;
+		
+		i=s;
+		i=b;
+		i=l;
+		i=c;
+		i=f;
+		i=d;
+		b=127;
+		s=127;
+		i=127;
+		l=127;
+		c=127;
+		f=127;
+		d=127;
+		
+		s=b;
+		s=i;
+		s=l;
+		s=c;
+		s=f;
+		s=d;
+			b=127;
+		s=127;
+		i=127;
+		l=127;
+		c=127;
+		f=127;
+		d=127;
+		
+		
+		l=s;
+		l=i;
+		l=b;
+		l=c;
+		l=f;
+		l=d;
+			b=127;
+		s=127;
+		i=127;
+		l=127;
+		c=127;
+		f=127;
+		d=127;
+		
+		
+		c=s;
+		c=i;
+		c=l;
+		c=b;
+		c=f;
+		c=d;
+			b=127;
+		s=127;
+		i=127;
+		l=127;
+		c=127;
+		f=127;
+		d=127;
+		
+		
+		f=s;
+		f=i;
+		f=l;
+		f=c;
+		f=b;
+		f=d;
+			b=127;
+		s=127;
+		i=127;
+		l=127;
+		c=127;
+		f=127;
+		d=127;
+		
+		d=s;
+		d=i;
+		d=l;
+		d=c;
+		d=f;
+		d=b;*/
+		
 		b=127;//assigning byte value
 		System.out.println(b);//prints as it is
 		/*b=256;//assigning short, int, long 

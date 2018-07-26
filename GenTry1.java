@@ -9,7 +9,7 @@ public class GenTry1
 }
 class Container 
 {
-	public <T>void setObj(T obj) 
+	public <T extends Number>void setObj(T obj) 
 	{
 		System.out.println(obj.getClass().getName());
 	}

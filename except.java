@@ -13,7 +13,14 @@ class except
 			except1 a=new except1();
 			a.initCause(new ArithmeticException());
 			System.out.println("inside try1");
-			throw a;
+			try
+			{
+				throw new ArithmeticException();
+			}
+			catch(ArithmeticException e)
+			{
+				throw a;
+			}
 		}
 		catch (Exception | except1 e)
 		{
@@ -21,6 +28,11 @@ class except
 			System.out.println(e.getCause());
 		}
 	}
+}
+class something extends except
+{
+	@Override
+	void test(){}
 }
 class except1 extends Throwable
 {
