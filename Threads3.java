@@ -1,4 +1,4 @@
-class Threads2
+class Threads3
 {
 	public static void main(String[] args) throws InterruptedException
 	{
@@ -16,9 +16,9 @@ class Threads2
 }
 class Resource
 {
-	void msg(String s)
+	synchronized void msg(String s)
 	{
-		System.out.print(s);
+		System.out.println(s);
 		try
 		{
 			Thread.sleep(500);
