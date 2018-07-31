@@ -2,13 +2,19 @@ class lamb
 {
 	public static void main(String[] args)
 	{
-		ImplementMe a=()->System.out.println("Hello");
-		ImplementMe b=()->System.out.println("Hi");
-		a.display();
-		b.display();
+		Another a=new Another();
+		a.implement(()->System.out.println("Hello"));
+		a.implement(()->System.out.println("Hi"));
 	}
 }
 interface ImplementMe
 {
 	void display();
+}
+class Another
+{
+	void implement(ImplementMe a)
+	{
+		a.display();
+	}
 }
