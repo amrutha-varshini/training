@@ -39,7 +39,7 @@ class Resource
 		{
 			try
 			{
-				wait();
+			wait();
 			}
 			catch(Exception e)
 			{}

@@ -2,38 +2,43 @@ class Threads
 {
 	public static void main(String[] args) throws InterruptedException
 	{
-		System.out.println("This is main thread");
-		Check check=new Check();
-		check.run();
-		for(int i=0;i<5;i++)
-		{
-			System.out.println(i);
-			Thread.sleep(1000);
-		}
-		System.out.println("Main thread is done");
+		Check check1=new Check("1");
+		Check check2=new Check("2");
+		Check check3=new Check("3");
+		Check check4=new Check("4");
+		Check check5=new Check("5");
+		Check check6=new Check("6");
+		Check check7=new Check("7");
+		Check check8=new Check("8");
+		Check check9=new Check("9");
 	}
 }
 class Check implements Runnable
 {
 	Thread t;
-	Check()
+	Check(String str)
 	{
-		t=new Thread(this,"Another");
-		//t.start();
+		t=new Thread(this,str);
+		t.start();
 	}
 	public void run() 
 	{
-		System.out.println("This is another thread");
-		try
-		{
-			for(int i=0;i<5;i++)
+		callme();
+	}
+	synchronized static void callme()
+	{
+		//try
+		//{
+			//synchronized(Check.class)
 			{
-				System.out.println(i);
-				Thread.sleep(500);
+				for(int i=0;i<5;i++)
+				{
+					System.out.println(Thread.currentThread()+" "+i);
+					//Thread.currentThread().sleep(10);
+				}
 			}
-		}
-		catch(InterruptedException e)
-		{}
-		System.out.println("Another thread is done");
+		//}
+		//catch(InterruptedException e)
+		//{}
 	}
 }

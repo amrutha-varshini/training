@@ -18,12 +18,33 @@ class Resource
 	int n;
 	synchronized int get()
 	{
+		try
+		{
+			wait();
+		}
+		catch(Exception e)
+		{
+			System.out.println("cons exception");
+		}
 		System.out.println("get "+n);
+		notify();
 		return n;
 	}
 	synchronized void put(int i)
 	{
+		if(i!=0)
+		{
+			try
+			{
+				wait();
+			}
+			catch(Exception e)
+			{
+				System.out.println("prod exception");
+			}
+		}
 		n=i;
+		notify();
 		System.out.println("put "+n);
 	}
 }
@@ -41,7 +62,9 @@ class Producer implements Runnable
 	{
 		int i=0;
 		while(i<7)
+		{
 			r.put(i++);
+		}
 	}
 }
 class Consumer implements Runnable
@@ -61,7 +84,6 @@ class Consumer implements Runnable
 		{
 			i=r.get();
 		}
-		while(i<6);
-			
+		while(i<6);	
 	}
 }
