@@ -19,10 +19,12 @@ class Resource
 	boolean valueset;
 	synchronized int get()
 	{
+		System.out.println("C is executing");
 		if(!valueset)
 		{
 			try
 			{
+				System.out.println("C is waiting");
 				wait();
 			}
 			catch(Exception e)
@@ -30,22 +32,26 @@ class Resource
 		}
 		System.out.println("get "+n);
 		valueset=false;
+		System.out.println("C is notifying");
 		notify();
 		return n;
 	}
 	synchronized void put(int i)
 	{
+		System.out.println("P is executing");
 		if(valueset)
 		{
 			try
 			{
-			wait();
+				System.out.println("P is waiting");
+				wait();
 			}
 			catch(Exception e)
 			{}
 		}
 		n=i;
 		valueset=true;
+		System.out.println("P is notifying");
 		notify();
 		System.out.println("put "+n);
 	}

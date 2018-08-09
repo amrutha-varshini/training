@@ -2,17 +2,14 @@ public class Gen
 {
 	public static void main(String[] args)
 	{
-		//ObjectContainer<Integer> o=new ObjectContainer<Integer>();
-	//	o=new ObjectContainer<Integer>();
-		//o.setObj(5);
-		//int me=o.getObj();
-		//System.out.println(me);
+		ObjectContainer<? super Integer> o=new ObjectContainer<Number>();
+		o.setObj(new Integer(5));
 	}
 }
 interface A
 {
 }
-class ObjectContainer<T extends Number & A > 
+class ObjectContainer<T> 
 {
 	private T obj;
 	public T getObj() {
