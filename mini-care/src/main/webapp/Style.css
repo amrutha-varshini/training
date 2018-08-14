@@ -1,0 +1,50 @@
+@charset "UTF-8";
+body
+{
+	background-color:#efdd92;
+}
+h1
+{
+	text-align:center;
+	font-family:"Comic Sans MS";
+}
+.button
+{
+    width:5em;
+    margin:auto;
+    text-align:center;
+	background-color:black;
+	padding-top:0.5em;
+    padding-bottom:0.5em;
+}
+.button1
+{
+    text-align:center;
+	background-color:black;
+	padding:0.5em;
+}
+a 
+{
+	color:#efdd92;
+	text-decoration:none; 
+}
+.middle
+{
+	margin:auto;
+	width:10em;
+}
+.middle1
+{
+	margin:auto;
+	width:20em;
+}
+.middle2
+{
+	margin:auto;
+	width:25em;
+}
+.middle3
+{
+	margin:auto;
+	width:15em;
+}
