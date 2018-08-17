@@ -1,3 +1,4 @@
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,21 +10,24 @@
 </head>
 <body>
 <h1>Welcome to Mini Care</h1>
-<div class="middle1">
-<span class="button1"><a href="SitterSearch.jsp">Sitter Search</a></span> 
-<span class="button1"><a href="JobPost.jsp">Job Post</a></span> 
-<span class="button1"><a href="JobApplication.jsp">Job Application</a></span> 
-<form action="" method="post">
+<div class="middle2">
+<span class="button1"><a href="SitterSearch.do">Sitter Search</a></span> 
+<span class="button1"><a href="JobPost.do">Job Post</a></span> 
+<span class="button1"><a href="JobApplication.do">Job Application</a></span> 
+<span class="button1"><a href="Logout.do">Logout</a></span>
+<html:form action="CaptureJobPost.do" method="post">
 <p>Title</p>
-<input type="text" name="title"/>
+<html:text property="title"/>
+<html:errors property="title" />
 <br/>
 <p>Description</p>
-<textarea name="desc" cols="40" rows="5"></textarea>
+<html:textarea property="desc" cols="40" rows="5"></html:textarea>
+<html:errors property="desc" />
 <br/>
 <br/>
-<input type="submit" value="Submit"/>
-<input type="reset" value="Reset"/>
-</form>
+<html:submit value="Submit"/>
+<html:reset value="Reset"/>
+</html:form>
 </div>
 </body>
 </html>

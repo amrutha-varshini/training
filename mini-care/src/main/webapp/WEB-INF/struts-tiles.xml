@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+       "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+
+<tiles-definitions>
+	<definition name="Layout" page="/Layout.jsp">
+    	<put name="header" value="/header.jsp" />
+    	<put name="footer" value="/footer.jsp" />
+	</definition>
+	<definition name="Seeker" extends="Layout">
+    	<put name="header1" value="/SeekerHeader.jsp" />
+	</definition>
+	<definition name="Sitter" extends="Layout">
+    	<put name="header1" value="/SitterHeader.jsp" />
+	</definition>
+</tiles-definitions>

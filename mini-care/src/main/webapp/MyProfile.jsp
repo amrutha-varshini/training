@@ -1,3 +1,4 @@
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,41 +11,26 @@
 <body>
 <h1>Welcome to Mini Care</h1>
 <div class="middle3">
-<span class="button1"><a href="JobSearch.jsp">Job Search</a></span> 
-<span class="button1"><a href="MyProfile.jsp">My Profile</a></span> 
+<span class="button1"><a href="JobSearch.do">Job Search</a></span> 
+<span class="button1"><a href="MyProfile.do">My Profile</a></span> 
+<span class="button1"><a href="Logout.do">Logout</a></span>
 <br/>
 <br/>
 </div>
 <div class="middle">
-<form action="" method="post">
-<p>First Name</p>
-<input type="text" name="fname" value="aa" required/>
-<br/>
-<p>Last Name</p>
-<input type="text" name="lname" value="bb" required/>
-<br/>
-<p>Email</p>
-<input type="email" name="ID" value="a@a.com" readonly/>
-<br/>
-<p>Password</p>
-<input type="password" name="pwd" value="aaa" required/>
-<br/>
+<html:form action="CaptureMyProfile.do" method="post">
 <p>Profile Title</p>
-<input type="text" name="ptitle" value=""/>
+<html:text property="ptitle"/>
+<html:errors property="ptitle" />
 <br/>
 <p>Description</p>
-<textarea name="pdesc"></textarea>
-<br/>
-<p>Phone Number</p>
-<input type="text" name="phno" value="123" required/>
-<br/>
-<p>Zip Code</p>
-<input type="text" name="zip" value="56023" required/>
+<html:textarea property="pdesc"></html:textarea>
+<html:errors property="pdesc" />
 <br/>
 <br/>
-<input type="submit" value="Register"/>
-<input type="reset" value="Reset"/>
-</form>
+<html:submit value="Register"/>
+<html:reset value="Reset"/>
+</html:form>
 </div>
 </body>
 </html>

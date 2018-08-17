@@ -9,10 +9,11 @@
 </head>
 <body>
 <h1>Welcome to Mini Care</h1>
-<div class="middle1">
-<span class="button1"><a href="SitterSearch.jsp">Sitter Search</a></span> 
-<span class="button1"><a href="JobPost.jsp">Job Post</a></span> 
-<span class="button1"><a href="JobApplication.jsp">Job Application</a></span> 
+<div class="middle2">
+<span class="button1"><a href="SitterSearch.do">Sitter Search</a></span> 
+<span class="button1"><a href="JobPost.do">Job Post</a></span> 
+<span class="button1"><a href="JobApplication.do">Job Application</a></span> 
+<span class="button1"><a href="Logout.do">Logout</a></span>
 <br/>
 <br/>
 </div>

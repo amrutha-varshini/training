@@ -1,3 +1,4 @@
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,24 +10,27 @@
 </head>
 <body>
 <h1>Welcome to Mini Care</h1>
-<div class="middle1">
-<span class="button1"><a href="SitterSearch.jsp">Sitter Search</a></span> 
-<span class="button1"><a href="JobPost.jsp">Job Post</a></span> 
-<span class="button1"><a href="JobApplication.jsp">Job Application</a></span> 
+<div class="middle2">
+<span class="button1"><a href="SitterSearch.do">Sitter Search</a></span> 
+<span class="button1"><a href="JobPost.do">Job Post</a></span> 
+<span class="button1"><a href="JobApplication.do">Job Application</a></span> 
+<span class="button1"><a href="Logout.do">Logout</a></span>
 <br/>
 <br/>
 </div>
 <div class="middle">
-<form action="" method="post">
+<html:form action="CaptureZipSeeker.do" method="post">
+<html:hidden property="member" value="seeker"/>
 <p>Enter Zipcode</p>
-<input type="text" name="zip" required/>
+<html:text property="zip" />
+<html:errors property="zip" />
 <br/>
 <br/>
-<input type="submit" value="Submit"/>
-<input type="reset" value="Reset"/>
+<html:submit value="Submit"/>
+<html:reset value="Reset"/>
 <br/>
 <br/>
-</form>
+</html:form>
 </div>
 <div class="middle2">
 <table border="1">
