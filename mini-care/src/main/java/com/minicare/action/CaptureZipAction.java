@@ -19,7 +19,7 @@ public class CaptureZipAction extends Action {
 		CaptureZipForm form1 = (CaptureZipForm) form;
 		String mem=(String)hs.getAttribute("member");
 		if ("sitter".equals(mem))
-				return mapping.findForward("successSitter");
+			return mapping.findForward("successSitter");
 			else if ("seeker".equals(mem))
 				return mapping.findForward("successSeeker");
 			else

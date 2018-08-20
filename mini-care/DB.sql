@@ -1,23 +1,33 @@
 create database mini_care;
 use mini_care;
-create table users(role char(6),
+create table users(id int not null auto_increment,
+					role char(6),
 					fname varchar(20) not null,
 					lname varchar(20) not null,
-					userID varchar(20) not null,
+					email varchar(20) not null,
 					pwd char(6) not null,
 					phno char(13) not null,
 					zip char(5) not null,
-					title varchar(20),
-					descr varchar(300),
+					address_line1 varchar(20) not null,
+					address_line2 varchar(20) not null,
+					city varchar(20) not null,
+					state varchar(20) not null,
 					lastactive timestamp,
-					status boolean,
-					primary key(userID));
+					status enum("ACTIVE","INACTIVE"),
+					primary key(id));
 
-create table Seeker(id int not null AUTO_INCREMENT,
-					userID varchar(20) not null,
+create table seeker_job(id int not null auto_increment,
+					userID int not null,
 					title varchar(20) not null,
 					descr varchar(300) not null,
-					foreign key(userID) references users(userID))
+					foreign key(userID) references users(id),
+					primary key(id));
+					
+create table sitter(id int not null auto_increment,
+					userID int not null,
+					title varchar(20),
+					descr varchar(300),
+					foreign key(userID) references users(id),
 					primary key(id));
 	
 create table job_status(id int not null,

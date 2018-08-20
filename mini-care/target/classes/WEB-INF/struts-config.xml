@@ -28,14 +28,16 @@
 		<action path="/Visitor/Login" parameter="/Login.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
 		<action path="/Visitor/Register" parameter="/Register.jsp"
-			type="org.apache.struts.actions.ForwardAction"  />
+			type="org.apache.struts.actions.ForwardAction" />
 		<action path="/Sitter/JobSearch" parameter="/JobSearch.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
-		<action path="/Seeker/SitterSearch" parameter="/SitterSearch.jsp"
+		<action path="/Seeker/SitterSearch"
+			parameter="/SitterSearch.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
 		<action path="/Seeker/JobPost" parameter="/JobPost.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
-		<action path="/Seeker/JobApplication" parameter="/JobApplication.jsp"
+		<action path="/Seeker/JobApplication"
+			parameter="/JobApplication.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
 		<action path="/Sitter/MyProfile" parameter="/MyProfile.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
@@ -46,8 +48,10 @@
 		<action name="CaptureRegister" path="/Visitor/CaptureRegister"
 			validate="true" input="/Visitor/Register.do" scope="request"
 			type="com.minicare.action.CaptureRegisterAction">
-			<forward name="successSeeker" path="/Visitor/Login.do?member=seeker" />
-			<forward name="successSitter" path="/Visitor/Login.do?member=sitter" />
+			<forward name="successSeeker"
+				path="/Visitor/Login.do?member=seeker" />
+			<forward name="successSitter"
+				path="/Visitor/Login.do?member=sitter" />
 		</action>
 		<action name="CaptureZip" path="/Seeker/CaptureZip"
 			validate="true" input="/Seeker/SitterSearch.do" scope="request"
@@ -65,14 +69,16 @@
 			validate="true" input="/Sitter/MyProfile.do" scope="request"
 			type="com.minicare.action.CaptureMyProfileAction">
 		</action>
-		<action path="/*/Logout" type="com.minicare.action.LogoutAction">
+		<action path="/*/Logout"
+			type="com.minicare.action.LogoutAction">
 			<forward name="success" path="/index.jsp" />
 		</action>
 	</action-mappings>
-	<message-resources parameter="com.minicare.ApplicationResources"/>
+	<message-resources
+		parameter="com.minicare.ApplicationResources" />
 	<plug-in className="org.apache.struts.tiles.TilesPlugin">
-	<set-property property="definitions-config"
-		value="/WEB-INF/struts-tiles.xml" />
-	<set-property property="moduleAware" value="true" />
-</plug-in>
+		<set-property property="definitions-config"
+			value="/WEB-INF/struts-tiles.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
 </struts-config>
