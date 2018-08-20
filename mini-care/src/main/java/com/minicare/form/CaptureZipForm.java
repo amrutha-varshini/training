@@ -8,19 +8,10 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 public class CaptureZipForm extends ActionForm {
-	private String member=null,zip=null;
+	private String zip=null;
 	public String getZip()
 	{
 		return zip;
-	}
-	public String getMember()
-	{
-		System.out.println("getMember"+member);
-		return member;
-	}
-	public void setMember(String member)
-	{
-		this.member=member;
 	}
 	public void setZip(String zip)
 	{
@@ -38,7 +29,6 @@ public class CaptureZipForm extends ActionForm {
 	public void reset(ActionMapping mapping,
             HttpServletRequest request)
 	{
-		member="";
 		zip="";
 		super.reset(mapping,request);
 	}

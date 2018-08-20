@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="Style.css"/>
+<link rel="stylesheet" href="../Style.css"/>
 <body>
-Welcome to Mini Care
+<h1>Oops! Something went wrong</h1>
 </body>
 </html>

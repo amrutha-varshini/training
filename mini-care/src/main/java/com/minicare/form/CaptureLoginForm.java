@@ -46,7 +46,6 @@ public class CaptureLoginForm extends ActionForm {
 	public void reset(ActionMapping mapping,
             HttpServletRequest request)
 	{
-		member="";
 		userID="";
 		pwd="";
 		super.reset(mapping,request);

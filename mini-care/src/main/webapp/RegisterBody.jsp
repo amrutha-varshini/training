@@ -1,12 +1,16 @@
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <!DOCTYPE html>
 <html>
-<%String member=request.getParameter("member"); %>
+<link rel="stylesheet" href="../Style.css"/>
+<%
+String member=request.getParameter("member");
+System.out.println(member);
+%>
 <body>
 <div class="middle">
-<html:form action="CaptureRegister.do" method="post">
+<html:form action="Visitor/CaptureRegister.do" method="post">
 <html:hidden property="member" value="<%=member %>"/>
 <p>First Name</p>
 <html:text property="fname"/>
@@ -24,7 +28,7 @@
 <html:password property="pwd"/>
 <html:errors property="pwd" />
 <br/>
-<p>Phone Number</p>
+<p>Phone Number in the format (ddd)ddd-dddd</p>
 <html:text property="phno"/>
 <html:errors property="phno" />
 <br/>

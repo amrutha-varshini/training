@@ -1,13 +1,7 @@
+<%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="Style.css"/>
-<title>Error</title>
-</head>
-<body>
-<h1>Oops! Something went wrong</h1>
-</body>
-</html>
+    <tiles:insert definition="Layout">
+    <tiles:put name="title" value="error" />
+	<tiles:put name="body" value="/errorBody.jsp" />
+</tiles:insert>

@@ -17,10 +17,6 @@ public class CaptureRegisterForm extends ActionForm {
 	{
 		return pwd;
 	}
-	public String getMember()
-	{
-		return member;
-	}
 	public String getFname()
 	{
 		return fname;
@@ -36,6 +32,10 @@ public class CaptureRegisterForm extends ActionForm {
 	public String getZip()
 	{
 		return zip;
+	}
+	public String getMember()
+	{
+		return member;
 	}
 	public void setMember(String member)
 	{
@@ -78,8 +78,12 @@ public class CaptureRegisterForm extends ActionForm {
 			actionErrors.add("pwd", new ActionMessage("actionErrors.pwd.pattern"));
 		if(fname == null || fname.length()==0) 
 			actionErrors.add("fname", new ActionMessage("actionErrors.fname.required"));
+		else if(!(fname.matches("[a-zA-Z]+")))
+			actionErrors.add("fname", new ActionMessage("actionErrors.fname.pattern"));
 		if(lname ==null || lname.length()==0)
 			actionErrors.add("lname", new ActionMessage("actionErrors.lname.required"));
+		else if(!(lname.matches("[a-zA-Z]+")))
+			actionErrors.add("lname", new ActionMessage("actionErrors.lname.pattern"));
 		if(phno == null || phno.length()==0) 
 			actionErrors.add("phno", new ActionMessage("actionErrors.phno.required"));
 		else if(!(phno.matches("[(][0-9]{3}[)][0-9]{3}-[0-9]{4}")))
@@ -93,7 +97,6 @@ public class CaptureRegisterForm extends ActionForm {
 	public void reset(ActionMapping mapping,
             HttpServletRequest request)
 	{
-		member="";
 		userID="";
 		pwd="";
 		fname="";

@@ -20,53 +20,52 @@
 			path="/error.jsp" />
 	</global-exceptions>
 	<global-forwards>
-		<forward name="successSitter" path="/JobSearch.do" />
-		<forward name="successSeeker" path="/SitterSearch.do" />
+		<forward name="successSitter" path="/Sitter/JobSearch.do" />
+		<forward name="successSeeker" path="/Seeker/SitterSearch.do" />
 		<forward name="failure" path="/index.jsp" />
 	</global-forwards>
 	<action-mappings>
-		<action path="/Login" parameter="/Login.jsp"
+		<action path="/Visitor/Login" parameter="/Login.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
-		<action path="/Register" parameter="/Register.jsp"
+		<action path="/Visitor/Register" parameter="/Register.jsp"
+			type="org.apache.struts.actions.ForwardAction"  />
+		<action path="/Sitter/JobSearch" parameter="/JobSearch.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
-		<action path="/JobSearch" parameter="/JobSearch.jsp"
+		<action path="/Seeker/SitterSearch" parameter="/SitterSearch.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
-		<action path="/SitterSearch" parameter="/SitterSearch.jsp"
+		<action path="/Seeker/JobPost" parameter="/JobPost.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
-		<action path="/JobPost" parameter="/JobPost.jsp"
+		<action path="/Seeker/JobApplication" parameter="/JobApplication.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
-		<action path="/JobApplication" parameter="/JobApplication.jsp"
+		<action path="/Sitter/MyProfile" parameter="/MyProfile.jsp"
 			type="org.apache.struts.actions.ForwardAction" />
-		<action path="/MyProfile" parameter="/MyProfile.jsp"
-			type="org.apache.struts.actions.ForwardAction" />
-		<action name="CaptureLogin" path="/CaptureLogin"
-			validate="true" input="/Login.do" scope="request"
+		<action name="CaptureLogin" path="/Visitor/CaptureLogin"
+			validate="true" input="/Visitor/Login.do" scope="request"
 			type="com.minicare.action.CaptureLoginAction">
 		</action>
-		<action name="CaptureRegister" path="/CaptureRegister"
-			validate="true" input="/Register.do" scope="request"
+		<action name="CaptureRegister" path="/Visitor/CaptureRegister"
+			validate="true" input="/Visitor/Register.do" scope="request"
 			type="com.minicare.action.CaptureRegisterAction">
-			<forward name="successSeeker" path="/Login.do?member=seeker" />
-			<forward name="successSitter" path="/Login.do?member=sitter" />
-			<forward name="failure" path="/Register.do" />
+			<forward name="successSeeker" path="/Visitor/Login.do?member=seeker" />
+			<forward name="successSitter" path="/Visitor/Login.do?member=sitter" />
 		</action>
-		<action name="CaptureZip" path="/CaptureZipSeeker"
-			validate="true" input="/SitterSearch.do" scope="request"
+		<action name="CaptureZip" path="/Seeker/CaptureZip"
+			validate="true" input="/Seeker/SitterSearch.do" scope="request"
 			type="com.minicare.action.CaptureZipAction">
 		</action>
-		<action name="CaptureZip" path="/CaptureZipSitter"
-			validate="true" input="/JobSearch.do" scope="request"
+		<action name="CaptureZip" path="/Sitter/CaptureZip"
+			validate="true" input="/Sitter/JobSearch.do" scope="request"
 			type="com.minicare.action.CaptureZipAction">
 		</action>
-		<action name="CaptureJobPost" path="/CaptureJobPost"
-			validate="true" input="/JobPost.do" scope="request"
+		<action name="CaptureJobPost" path="/Seeker/CaptureJobPost"
+			validate="true" input="/Seeker/JobPost.do" scope="request"
 			type="com.minicare.action.CaptureJobPostAction">
 		</action>
-		<action name="CaptureMyProfile" path="/CaptureMyProfile"
-			validate="true" input="/MyProfile.do" scope="request"
+		<action name="CaptureMyProfile" path="/Sitter/CaptureMyProfile"
+			validate="true" input="/Sitter/MyProfile.do" scope="request"
 			type="com.minicare.action.CaptureMyProfileAction">
 		</action>
-		<action path="/Logout" type="com.minicare.action.LogoutAction">
+		<action path="/*/Logout" type="com.minicare.action.LogoutAction">
 			<forward name="success" path="/index.jsp" />
 		</action>
 	</action-mappings>
