@@ -35,5 +35,13 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/address.hbm.xml"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/hibernate.cfg.xml"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/seeker_job.hbm.xml"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/sitter.hbm.xml"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/struts-config.xml"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/struts-tiles.xml"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/users.hbm.xml"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/web.xml"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

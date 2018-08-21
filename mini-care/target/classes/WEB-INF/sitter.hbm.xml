@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="Sitter" table="SITTER">
+		<id name="id" column="ID" />
+		<one-to-one name="USERS" class="Users" constrained="true"></one-to-one>
+		<property name="title" column="title" />
+		<property name="descr" column="descr" />
+		<set name="SeekerJob" table="SEEKER_JOB" inverse="true"
+			lazy="true" fetch="select">
+			<key column="id" />
+			<many-to-many column="id" class="SeekerJob" />
+		</set>
+	</class>
+</hibernate-mapping>
