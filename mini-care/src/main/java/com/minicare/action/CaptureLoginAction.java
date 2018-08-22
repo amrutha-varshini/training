@@ -7,10 +7,6 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
-import com.minicare.HibernateUtil;
 import com.minicare.form.CaptureLoginForm;
 
 public class CaptureLoginAction extends Action {
@@ -24,17 +20,7 @@ public class CaptureLoginAction extends Action {
     		String uid=form1.getUserID();
     		String pwd=form1.getPwd();
     		hs.setAttribute("member", mem);
-    		SessionFactory sf = HibernateUtil.getSessionFactory();
-    		Session session = sf.openSession();
-    		session.beginTransaction();
-
-    		   		
-    		session.save(hs);
-
     		
-    	
-    		session.getTransaction().commit();
-    		session.close();
     		hs.setAttribute("fname", "Abc");
     		hs.setAttribute("lname", "Def");
     	 if("sitter".equals(mem))

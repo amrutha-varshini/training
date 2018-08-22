@@ -8,8 +8,11 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.apache.struts.action.ActionMessage;
 
+import com.minicare.HibernateUtil;
 import com.minicare.form.CaptureRegisterForm;
 
 public class CaptureRegisterAction extends Action {
@@ -26,6 +29,11 @@ public class CaptureRegisterAction extends Action {
 		String pwd=form1.getPwd();
 		String phno=form1.getPhno();
 		String zip=form1.getZip();
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+	Session session = sf.openSession();
+
+		
+	session.close();
 		if("admin".equals(fname))
 			throw new Exception();
 		actionMessages.add("msg", new ActionMessage("msg"));

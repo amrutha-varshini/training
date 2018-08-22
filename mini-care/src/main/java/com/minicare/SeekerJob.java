@@ -3,12 +3,12 @@ package com.minicare;
 import java.util.Set;
 
 public class SeekerJob {
-	private int id,userid;
+	private int sid,userid;
 	private String title,desc;
 	private Set<Sitter> sitter;
-	int getId()
+	int getSid()
 	{
-		return id;
+		return sid;
 	}
 	int getUserid()
 	{
@@ -26,9 +26,9 @@ public class SeekerJob {
 	{
 		return sitter;
 	}
-	void setId(int id)
+	void setSid(int sid)
 	{
-		this.id=id;
+		this.sid=sid;
 	}
 	void setUserid(int userid)
 	{

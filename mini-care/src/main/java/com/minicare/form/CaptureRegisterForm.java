@@ -8,7 +8,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 public class CaptureRegisterForm extends ActionForm {
-	private String member=null,userID=null,pwd=null,fname=null,lname=null,phno=null,zip=null;
+	private String member=null,userID=null,pwd=null,fname=null,lname=null,al1=null,al2=null,city=null,states=null,phno=null,zip=null;
 	public String getUserID()
 	{
 		return userID;
@@ -32,6 +32,22 @@ public class CaptureRegisterForm extends ActionForm {
 	public String getZip()
 	{
 		return zip;
+	}
+	public String getAl1()
+	{
+		return al1;
+	}
+	public String getAl2()
+	{
+		return al2;
+	}
+	public String getCity()
+	{
+		return city;
+	}
+	public String getStates()
+	{
+		return states;
 	}
 	public String getMember()
 	{
@@ -65,6 +81,22 @@ public class CaptureRegisterForm extends ActionForm {
 	{
 		this.zip=zip;
 	}
+	public void setAl1(String al1)
+	{
+		this.al1=al1;
+	}
+	public void setAl2(String al2)
+	{
+		this.al2=al2;
+	}
+	public void setCity(String city)
+	{
+		this.city=city;
+	}
+	public void setStates(String states)
+	{
+		this.states=states;
+	}
 	public ActionErrors validate(ActionMapping mapping,
             HttpServletRequest request){
 		ActionErrors actionErrors=new ActionErrors();
@@ -92,6 +124,22 @@ public class CaptureRegisterForm extends ActionForm {
 			actionErrors.add("zip", new ActionMessage("actionErrors.zip.required"));
 		else if(!(zip.matches("[0-9]{5}")))
 			actionErrors.add("zip", new ActionMessage("actionErrors.zip.pattern"));
+		if(al1 == null || al1.length()==0) 
+			actionErrors.add("al1", new ActionMessage("actionErrors.al1.required"));
+		else if(!(al1.matches("[a-zA-Z]+")))
+			actionErrors.add("al1", new ActionMessage("actionErrors.al1.pattern"));
+		if(al2 == null || al2.length()==0) 
+			actionErrors.add("al2", new ActionMessage("actionErrors.al2.required"));
+		else if(!(al2.matches("[a-zA-Z]+")))
+			actionErrors.add("al2", new ActionMessage("actionErrors.al2.pattern"));
+		if(city == null || city.length()==0) 
+			actionErrors.add("city", new ActionMessage("actionErrors.city.required"));
+		else if(!(city.matches("[a-zA-Z]+")))
+			actionErrors.add("city", new ActionMessage("actionErrors.city.pattern"));
+		if(states == null || states.length()==0) 
+			actionErrors.add("states", new ActionMessage("actionErrors.states.required"));
+		else if(!(states.matches("[a-zA-Z]+")))
+			actionErrors.add("states", new ActionMessage("actionErrors.states.pattern"));
 		return actionErrors;
 	}
 	public void reset(ActionMapping mapping,
@@ -103,6 +151,10 @@ public class CaptureRegisterForm extends ActionForm {
 		lname="";
 		phno="";
 		zip="";
+		al1="";
+		al2="";
+		city="";
+		states="";
 		super.reset(mapping,request);
 	}
 }

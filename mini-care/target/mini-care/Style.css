@@ -1,4 +1,8 @@
 @charset "UTF-8";
+html {
+    position: relative;
+    min-height: 100%;
+}
 body
 {
 	background-color:#efdd92;
@@ -47,4 +51,16 @@ a
 {
 	margin:auto;
 	width:15em;
+}
+.middle4
+{
+	margin:auto;
+	width:30em;
+}
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 20px;
+    overflow: hidden;
 }

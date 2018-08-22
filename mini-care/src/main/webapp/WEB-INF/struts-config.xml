@@ -15,10 +15,6 @@
 		<form-bean name="CaptureMyProfile"
 			type="com.minicare.form.CaptureMyProfileForm" />
 	</form-beans>
-	<global-exceptions>
-		<exception key="some.key" type="java.lang.Exception"
-			path="/error.jsp" />
-	</global-exceptions>
 	<global-forwards>
 		<forward name="successSitter" path="/Sitter/JobSearch.do" />
 		<forward name="successSeeker" path="/Seeker/SitterSearch.do" />
@@ -76,9 +72,11 @@
 	</action-mappings>
 	<message-resources
 		parameter="com.minicare.ApplicationResources" />
+		
 	<plug-in className="org.apache.struts.tiles.TilesPlugin">
 		<set-property property="definitions-config"
 			value="/WEB-INF/struts-tiles.xml" />
 		<set-property property="moduleAware" value="true" />
 	</plug-in>
+	
 </struts-config>

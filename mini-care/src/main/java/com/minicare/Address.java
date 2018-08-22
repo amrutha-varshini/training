@@ -35,11 +35,11 @@ public class Address {
 	{
 		this.addressLine2= addressLine1;
 	}
-	void setEmail(String city)
+	void setCity(String city)
 	{
 		this.city= city;
 	}
-	void setPwd(String states)
+	void setStates(String states)
 	{
 		this.states= states;
 	}

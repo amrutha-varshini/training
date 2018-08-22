@@ -5,7 +5,7 @@ public class Users {
 	enum active
 	{ACTIVE,INACTIVE};
 	private int id;
-	private String fname,lname,email,pwd,zip;
+	private String role,fname,lname,email,pwd,phno,zip;
 	private Timestamp lastActive; 
 	private active status;
 	private Address address;
@@ -13,6 +13,10 @@ public class Users {
 	int getId()
 	{
 		return id;
+	}
+	String getRole()
+	{
+		return role;
 	}
 	String getFname()
 	{
@@ -29,6 +33,10 @@ public class Users {
 	String getPwd()
 	{
 		return pwd;
+	}
+	String getPhno()
+	{
+		return phno;
 	}
 	String getZip()
 	{
@@ -54,6 +62,10 @@ public class Users {
 	{
 		this.id= id;
 	}
+	void setRole(String role)
+	{
+		this.role=role;
+	}
 	void setFname(String fname)
 	{
 		this.fname= fname;
@@ -69,6 +81,10 @@ public class Users {
 	void setPwd(String pwd)
 	{
 		this.pwd= pwd;
+	}
+	void setPhno(String phno)
+	{
+		this.phno=phno;
 	}
 	void setZip(String zip)
 	{
