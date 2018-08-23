@@ -3,11 +3,11 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.minicare.Users" table="USERS">
+	<class name="com.minicare.model.Users" table="USERS">
 		<id name="id" column="ID"  >
 			<generator class="native"/>
 		</id>
-		<discriminator column="role" type="string" />
+		<property name="role" column="role"/>
 		<property name="fname" column="fname" />
 		<property name="lname" column="lname" />
 		<property name="email" column="email" />
@@ -15,30 +15,37 @@
 		<property name="phno" column="phno" />
 		<property name="zip" column="zip" />
 		<property name="lastActive" column="last_active" />
-		<property name="status" column="status" />
+		<property name="status">
+            <column name="status" />
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">
+                    com.minicare.model.Active
+                </param>
+                <param name="type">12</param>
+            </type>
+        </property>
 		<set name="SeekerJob" table="seeker_job" inverse="true"
 			lazy="true" fetch="select">
 			<key>
-				<column name="sid" not-null="true" />
+				<column name="userid" not-null="true" />
 			</key>
-			<one-to-many class="com.minicare.SeekerJob" />
+			<one-to-many class="com.minicare.model.SeekerJob" />
 		</set>
-
-		
 		<component name="address">
 			<property name="addressLine1" column="address_line1" />
 			<property name="addressLine2" column="address_line2" />
 			<property name="city" column="city" />
 			<property name="states" column="states" />
 		</component>
-		<subclass name="com.minicare.Sitter" extends="com.minicare.Users" discriminator-value="sitter">
+		<joined-subclass name="com.minicare.model.Sitter" table="sitter">
+			<key column="id"/>
 			<property name="title" column="title" />
 			<property name="desc" column="descr" />
-			<set name="SeekerJob" table="SEEKER_JOB" inverse="true"
+			<set name="job" table="JOB_STATUS" inverse="true"
 				lazy="true" fetch="select">
-				<key column="id" />
-				<many-to-many column="id" class="com.minicare.SeekerJob" />
+				<key column="jobid" />
+				<many-to-many column="userid" class="com.minicare.model.Sitter" />
 			</set>
-		</subclass>
+		</joined-subclass>
 	</class>
 </hibernate-mapping>

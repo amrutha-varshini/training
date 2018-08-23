@@ -3,20 +3,17 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.minicare.SeekerJob" table="SEEKER_JOB">
-		<id name="sid" column="ID" >
+	<class name="com.minicare.model.SeekerJob" table="SEEKER_JOB">
+		<id name="sjid" column="ID" >
 			<generator class="native"/>
 		</id>
 		<property name="userid" column="userID" />
 		<property name="title" column="title" />
 		<property name="desc" column="descr" />
-		<many-to-one name="users" class="com.minicare.Users" fetch="select">
-			<column name="userid" not-null="true" />
-		</many-to-one>
-		<set name="SITTER" table="Sitter" inverse="false" lazy="true"
+		<set name="sitter" table="JOB_STATUS" inverse="false" lazy="true"
 			fetch="select" cascade="all">
-			<key column="id" />
-			<many-to-many column="id" class="com.minicare.Sitter" />
+			<key column="jobid" />
+			<many-to-many column="userid" class="com.minicare.model.Sitter" />
 		</set>
 	</class>
 </hibernate-mapping>

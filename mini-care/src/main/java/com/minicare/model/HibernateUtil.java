@@ -1,4 +1,4 @@
-package com.minicare;
+package com.minicare.model;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
  

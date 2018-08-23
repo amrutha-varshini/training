@@ -15,6 +15,10 @@
 <html:submit value="Submit"/>
 <html:reset value="Reset"/>
 <br/>
+<%
+String zip=session.getAttribute("zip");
+session.setAttribute("zip","");
+%>
 <br/>
 </html:form>
 </div>
@@ -27,14 +31,46 @@
 <th>Status</th>
 </tr>
 <tr>
-<td>bla</td>
-<td>bla</td>
-<td>bla</td>
+<%List<SeekerJob> res=com.minicare.dao.SeekerJobDao.getJob(zip);
+for(SeekerJob s:res)
+{
+	int flag=0;
+	String title=s.getTitle();
+	String desc=s.getDesc();
+	com.minicare.model.Users user=com.minicare.dao.UsersDao.getUser(id);
+	String zip=user.getZip();
+%>
+<td><%=title%></td>
+<td><%=desc%></td>
+<td><%=zip%></td>
 <td>
-<form action="" method="post">
-<input type="submit" value="Apply"/>
-</form>
+<%
+	Set<SeekerJob> s1=s.getJob();
+	for(SeekerJob j:s1)
+	{
+		if(j.getSjid().equals(s.getSjid()))
+		{
+			flag=1;
+			break;
+		}
+	}
+	if(flag==1)
+	{
+%>
+applied</td>
+<%
+	}
+	else
+	{
+%>
+<html:form action="Sitter/CaptureApply.do" method="post">
+<html:hidden property="id" value="<%=s.getSjid()%>"/>
+<html:submit value="Apply"/>
+</html:form>
 </td>
+<%
+}
+%>
 </tr>
 </table>
 </div>

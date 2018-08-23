@@ -1,7 +1,7 @@
 package com.minicare.form;
 
 import javax.servlet.http.HttpServletRequest;
-
+import com.minicare.dao.UsersDao;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
@@ -100,6 +100,8 @@ public class CaptureRegisterForm extends ActionForm {
 	public ActionErrors validate(ActionMapping mapping,
             HttpServletRequest request){
 		ActionErrors actionErrors=new ActionErrors();
+		if(UsersDao.check(userID)!=-1)
+			actionErrors.add("userID", new ActionMessage("actionErrors.userID.exists"));
 		if(userID == null || userID.length()==0)  
 			actionErrors.add("userID", new ActionMessage("actionErrors.userID.required"));
 		else if(!(userID.matches(".+@.+")))
@@ -126,12 +128,8 @@ public class CaptureRegisterForm extends ActionForm {
 			actionErrors.add("zip", new ActionMessage("actionErrors.zip.pattern"));
 		if(al1 == null || al1.length()==0) 
 			actionErrors.add("al1", new ActionMessage("actionErrors.al1.required"));
-		else if(!(al1.matches("[a-zA-Z]+")))
-			actionErrors.add("al1", new ActionMessage("actionErrors.al1.pattern"));
 		if(al2 == null || al2.length()==0) 
 			actionErrors.add("al2", new ActionMessage("actionErrors.al2.required"));
-		else if(!(al2.matches("[a-zA-Z]+")))
-			actionErrors.add("al2", new ActionMessage("actionErrors.al2.pattern"));
 		if(city == null || city.length()==0) 
 			actionErrors.add("city", new ActionMessage("actionErrors.city.required"));
 		else if(!(city.matches("[a-zA-Z]+")))
@@ -145,6 +143,7 @@ public class CaptureRegisterForm extends ActionForm {
 	public void reset(ActionMapping mapping,
             HttpServletRequest request)
 	{
+		member="";
 		userID="";
 		pwd="";
 		fname="";

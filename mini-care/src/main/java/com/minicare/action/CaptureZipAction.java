@@ -17,6 +17,8 @@ public class CaptureZipAction extends Action {
 			HttpServletResponse response) throws Exception {
 		HttpSession hs=request.getSession();
 		CaptureZipForm form1 = (CaptureZipForm) form;
+		String zip=form1.getZip();
+		hs.setAttribute("zip",zip);
 		String mem=(String)hs.getAttribute("member");
 		if ("sitter".equals(mem))
 			return mapping.findForward("successSitter");

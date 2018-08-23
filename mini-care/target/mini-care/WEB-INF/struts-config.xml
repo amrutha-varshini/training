@@ -41,6 +41,9 @@
 			validate="true" input="/Visitor/Login.do" scope="request"
 			type="com.minicare.action.CaptureLoginAction">
 		</action>
+		<action path="/Sitter/CaptureApply"	scope="request"
+			type="com.minicare.action.CaptureApplyAction">
+		</action>
 		<action name="CaptureRegister" path="/Visitor/CaptureRegister"
 			validate="true" input="/Visitor/Register.do" scope="request"
 			type="com.minicare.action.CaptureRegisterAction">
