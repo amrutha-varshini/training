@@ -1,17 +1,19 @@
 package com.minicare.model;
+import com.minicare.model.Users;
 import java.util.Set;
 
 public class SeekerJob {
-	private int sjid,userid;
+	private int sjid;
+	private Users user;
 	private String title,desc;
 	private Set<Sitter> sitter;
 	public int getSjid()
 	{
 		return sjid;
 	}
-	public int getUserid()
+	public Users getUser()
 	{
-		return userid;
+		return user;
 	}
 	public String getTitle()
 	{
@@ -29,9 +31,9 @@ public class SeekerJob {
 	{
 		this.sjid=sjid;
 	}
-	public void setUserid(int userid)
+	public void setUser(Users user)
 	{
-		this.userid=userid;
+		this.user=user;
 	}
 	public void setTitle(String title)
 	{

@@ -1,14 +1,14 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.minicare.model.Sitter,com.minicare.dao.SitterDao"%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="../Style.css"/>
 <%
 int id=(Integer)session.getAttribute("id");
-Sitter sitter=SitterDao.getSitter(id);
-String title=sitter.getTitle(id);
-String desc=sitter.getDesc(id);
+String title=SitterDao.getTitle(id);
+String desc=SitterDao.getDesc(id);
 %>
 <body>
 <div class="middle">

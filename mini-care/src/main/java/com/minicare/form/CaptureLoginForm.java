@@ -35,12 +35,12 @@ public class CaptureLoginForm extends ActionForm {
 	public ActionErrors validate(ActionMapping mapping,
             HttpServletRequest request){
 		ActionErrors actionErrors=new ActionErrors();
+		int id=UsersDao.check(userID);
 		if(userID == null || userID.length()==0)  
 			actionErrors.add("userID", new ActionMessage("actionErrors.userID.required"));
 		else if(!(userID.matches(".+@.+")))
 			actionErrors.add("userID", new ActionMessage("actionErrors.userID.pattern"));
-		int id=UsersDao.check(userID);
-		if(id==-1)
+		else if(id==-1)
 			actionErrors.add("userID", new ActionMessage("actionErrors.userID.notexists"));
 		else 
 		{

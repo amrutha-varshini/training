@@ -7,7 +7,9 @@
 		<id name="sjid" column="ID" >
 			<generator class="native"/>
 		</id>
-		<property name="userid" column="userID" />
+		<many-to-one name="user" class="com.minicare.model.Users" fetch="select">
+            <column name="userid"/>
+        </many-to-one>
 		<property name="title" column="title" />
 		<property name="desc" column="descr" />
 		<set name="sitter" table="JOB_STATUS" inverse="false" lazy="true"

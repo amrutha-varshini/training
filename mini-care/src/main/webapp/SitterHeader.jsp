@@ -5,7 +5,8 @@
 <link rel="stylesheet" href="../Style.css"/>
 <body>
 <div class="middle2">
-<% String fname=(String)session.getAttribute("fname");
+<%
+ String fname=(String)session.getAttribute("fname");
 String lname=(String)session.getAttribute("lname");%>
 <p>Hi <%=fname %> <%=lname %></p>
 <br/>

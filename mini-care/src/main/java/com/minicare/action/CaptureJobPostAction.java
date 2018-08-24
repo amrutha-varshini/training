@@ -22,6 +22,7 @@ public class CaptureJobPostAction extends Action {
 		String title=form1.getTitle();
 		String desc=form1.getDesc();
 		int id=(Integer)hs.getAttribute("id");
+		System.out.println(id);
 		SeekerJobDao.add(id,title,desc);
             return mapping.findForward("successSeeker");
         }

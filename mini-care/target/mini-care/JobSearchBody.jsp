@@ -1,6 +1,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.minicare.dao.SitterDao,com.minicare.dao.UsersDao,java.util.List,com.minicare.dao.SeekerJobDao,com.minicare.model.SeekerJob,java.util.Set"%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="../Style.css"/>
@@ -15,14 +16,13 @@
 <html:submit value="Submit"/>
 <html:reset value="Reset"/>
 <br/>
-<%
-String zip=session.getAttribute("zip");
-session.setAttribute("zip","");
-%>
 <br/>
 </html:form>
 </div>
- <div class="middle1">
+<%String zip=(String)session.getAttribute("zip");
+session.setAttribute("zip",null);
+int id=(Integer)session.getAttribute("id");%>
+<div class="middle1">
 <table border="1">
 <tr>
 <th>Job title</th>
@@ -31,47 +31,72 @@ session.setAttribute("zip","");
 <th>Status</th>
 </tr>
 <tr>
-<%List<SeekerJob> res=com.minicare.dao.SeekerJobDao.getJob(zip);
-for(SeekerJob s:res)
+<%
+String title=null;
+String desc=null;
+List<SeekerJob> res;
+if(zip!=null)
 {
-	int flag=0;
-	String title=s.getTitle();
-	String desc=s.getDesc();
-	com.minicare.model.Users user=com.minicare.dao.UsersDao.getUser(id);
-	String zip=user.getZip();
+res=SeekerJobDao.getJob(Integer.parseInt(zip));
+}
+else
+{
+res=SeekerJobDao.getJob();
+}
+if(res!=null)
+{
+	System.out.println(res.size());
+	for(SeekerJob s:res)	
+	{
+		System.out.println("I am being executed1");
+		int flag=0;
+		title=SeekerJobDao.getTitle(s);
+		desc=SeekerJobDao.getDesc(s);
+		int uid=SeekerJobDao.getUserid(s);
+		zip=UsersDao.getZip(uid);
 %>
 <td><%=title%></td>
 <td><%=desc%></td>
 <td><%=zip%></td>
-<td>
 <%
-	Set<SeekerJob> s1=s.getJob();
-	for(SeekerJob j:s1)
-	{
-		if(j.getSjid().equals(s.getSjid()))
+		Set<SeekerJob> s1=SitterDao.getJob(id);
+		System.out.println("I am being executed2");
+		if(false)
 		{
-			flag=1;
-			break;
+			System.out.println("s1 not null with"+s1.size());
+			for(SeekerJob j:s1)
+			{
+				if(SeekerJobDao.getSjid(j)==SeekerJobDao.getSjid(s))
+				{
+					flag=1;
+					break;
+				}
+			}
 		}
-	}
-	if(flag==1)
-	{
+		System.out.println("I am being executed3");
+		if(flag==1)
+		{System.out.println("I am being executed4");
 %>
-applied</td>
+<td>applied</td>
 <%
-	}
-	else
-	{
+		}
+		else
+		{System.out.println("I am being executed5");
+			Integer jobid=SeekerJobDao.getSjid(s);
+			String sjid=jobid.toString();
 %>
-<html:form action="Sitter/CaptureApply.do" method="post">
-<html:hidden property="id" value="<%=s.getSjid()%>"/>
-<html:submit value="Apply"/>
+<td>
+<html:form action="Sitter/CaptureApply.do">
+
 </html:form>
 </td>
 <%
-}
+		}
 %>
 </tr>
+<%
+}}
+%>
 </table>
 </div>
 </body>

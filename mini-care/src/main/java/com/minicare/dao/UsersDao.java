@@ -78,6 +78,27 @@ public class UsersDao{
 		session.close();
 		return lname;
 	}
+	public static String getZip(int id)
+	{
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		Users user=(Users)session.load(Users.class, id);
+		String zip=user.getZip();
+		session.getTransaction().commit();
+		session.close();
+		return zip;
+	}
+	public static int getUserid(Users user)
+	{
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		int userid=user.getId();
+		session.getTransaction().commit();
+		session.close();
+		return userid;
+	}
 	public static Users getUser(int id)
 	{
 		SessionFactory sf = HibernateUtil.getSessionFactory();
