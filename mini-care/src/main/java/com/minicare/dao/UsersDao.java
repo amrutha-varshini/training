@@ -89,6 +89,17 @@ public class UsersDao{
 		session.close();
 		return zip;
 	}
+	public static String getRole(int id)
+	{
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		Users user=(Users)session.load(Users.class, id);
+		String role=user.getRole();
+		session.getTransaction().commit();
+		session.close();
+		return role;
+	}
 	public static int getUserid(Users user)
 	{
 		SessionFactory sf = HibernateUtil.getSessionFactory();

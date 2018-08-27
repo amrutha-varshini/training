@@ -42,9 +42,9 @@
 			<property name="title" column="title" />
 			<property name="desc" column="descr" />
 			<set name="job" table="JOB_STATUS" inverse="true"
-				lazy="true" fetch="select">
-				<key column="jobid" />
-				<many-to-many column="userid" class="com.minicare.model.Sitter" />
+				lazy="false" fetch="select">
+				<key column="userid" />
+				<many-to-many column="jobid" class="com.minicare.model.SeekerJob" />
 			</set>
 		</joined-subclass>
 	</class>

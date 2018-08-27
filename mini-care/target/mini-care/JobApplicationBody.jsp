@@ -17,7 +17,6 @@
 </tr>
 <%
 Integer id=(Integer)session.getAttribute("id");
-String title=null;
 String fname=null;
 String lname=null;
 String email=null;
@@ -38,7 +37,7 @@ if(res!=null)
 			zip=SitterDao.getZip(s1);
 %>
 <tr>
-<td><%=title %></td>
+<td><%=s %></td>
 <td><%=fname %></td>
 <td><%=lname %></td>
 <td><%=email %></td>

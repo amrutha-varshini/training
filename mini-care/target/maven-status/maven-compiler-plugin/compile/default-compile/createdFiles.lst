@@ -20,3 +20,4 @@ com\minicare\model\Address.class
 com\minicare\model\HibernateUtil.class
 com\minicare\model\Users.class
 com\minicare\form\CaptureLoginForm.class
+com\minicare\util\MyRequestProcessor.class

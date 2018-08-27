@@ -30,7 +30,7 @@ public class SeekerJobDao
 		Session session = sf.openSession();
 		session.beginTransaction();
 		List<SeekerJob> UserList=new ArrayList<SeekerJob>();
-		UserList = session.createQuery("FROM SeekerJob WHERE ZIP='"+zip+"'").list();
+		UserList = session.createQuery("FROM SeekerJob WHERE user.zip='"+zip+"'").list();
 		session.getTransaction().commit();
 		session.close();
 		return UserList;
@@ -51,10 +51,15 @@ public class SeekerJobDao
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session session = sf.openSession();
 		session.beginTransaction();
+		System.out.println("executing0");
 		SeekerJob job=(SeekerJob)session.load(SeekerJob.class, jid);
+		System.out.println("executing1");
 		Sitter user=(Sitter)session.load(Sitter.class, sid);
+		System.out.println("executing2");
 		job.getSitter().add(user);
+		System.out.println("executing3");
 		session.save(job);
+		System.out.println("executing4");
 		session.getTransaction().commit();
 		session.close();
 	}

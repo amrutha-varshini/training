@@ -2,14 +2,19 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="../Style.css"/>
+<link rel="stylesheet" href="http://localhost:8080/mini-care/Style.css"/>
 <body>
 <div class="button">
-<a href="http://localhost:8080/mini-care/Visitor/Login.do?member=seeker">Seeker</a>
-</div> 
-<br/>
+<form action="http://localhost:8080/mini-care/Visitor/Login.do" method="post">
+<input type="hidden" name="member" value="seeker"/>
+<input type="submit" value="Seeker"/>
+</form>
+</div>
 <div class="button">
-<a href="http://localhost:8080/mini-care/Visitor/Login.do?member=sitter">Sitter</a>
-</div> 
+<form action="http://localhost:8080/mini-care/Visitor/Login.do" method="post">
+<input type="hidden" name="member" value="sitter"/>
+<input type="submit" value="Sitter"/>
+</form> 
+</div>
 </body>
 </html>

@@ -1,9 +1,0 @@
-<subclass name="com.minicare.Sitter" extends="com.minicare.Users" discriminator-value="sitter">
-			<property name="title" column="title" />
-			<property name="desc" column="descr" />
-			<set name="SeekerJob" table="JOB_STATUS" inverse="true"
-				lazy="true" fetch="select">
-				<key column="jobid" />
-				<many-to-many column="userid" class="com.minicare.Sitter" />
-			</set>
-		</subclass>

@@ -15,7 +15,9 @@ public class CaptureApplyAction extends Action {
 			HttpServletResponse response) throws Exception {
 		HttpSession hs=request.getSession();
 		int sid=(Integer)hs.getAttribute("id");
+		System.out.println(sid);
 		int jid=Integer.parseInt(request.getParameter("sjid")); 
+		System.out.println(jid+"ulul");
 		SeekerJobDao.apply(jid,sid);
-			return mapping.findForward("successSitter");
+		return mapping.findForward("successSitter");
 }}

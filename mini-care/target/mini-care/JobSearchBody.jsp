@@ -61,7 +61,7 @@ if(res!=null)
 <%
 		Set<SeekerJob> s1=SitterDao.getJob(id);
 		System.out.println("I am being executed2");
-		if(false)
+		if(s1!=null)
 		{
 			System.out.println("s1 not null with"+s1.size());
 			for(SeekerJob j:s1)
@@ -83,12 +83,16 @@ if(res!=null)
 		else
 		{System.out.println("I am being executed5");
 			Integer jobid=SeekerJobDao.getSjid(s);
+			System.out.println(jobid);
 			String sjid=jobid.toString();
+			System.out.println(sjid);
+			System.out.println("I am being executed");
 %>
 <td>
-<html:form action="Sitter/CaptureApply.do">
-
-</html:form>
+<form action="../Sitter/CaptureApply.do" method="post">
+<input type="hidden" name="sjid" value="<%=sjid %>"/>
+<input type="submit" value="Apply"/>
+</form>
 </td>
 <%
 		}

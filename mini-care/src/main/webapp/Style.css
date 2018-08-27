@@ -64,3 +64,14 @@ a
     height: 20px;
     overflow: hidden;
 }
+button2 {
+    border: 0;
+    padding: 0;
+    display: inline;
+    background: none;
+    text-decoration: underline;
+    color: blue;
+}
+button2:hover {
+    cursor: pointer;
+}

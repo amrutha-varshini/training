@@ -12,7 +12,7 @@
         </many-to-one>
 		<property name="title" column="title" />
 		<property name="desc" column="descr" />
-		<set name="sitter" table="JOB_STATUS" inverse="false" lazy="true"
+		<set name="sitter" table="JOB_STATUS" inverse="false" lazy="false"
 			fetch="select" cascade="all">
 			<key column="jobid" />
 			<many-to-many column="userid" class="com.minicare.model.Sitter" />

@@ -38,7 +38,7 @@ String phno=null;
 List<Sitter> res;
 if(zip!=null)
 {
-	res=SitterDao.getSitters(zip);
+	res=SitterDao.getSitters(Integer.parseInt(zip));
 	System.out.println("I am in zip not null");
 }
 else
