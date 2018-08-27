@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="CaptureLogin"
+			type="com.minicare.form.CaptureLoginForm" />
+		<form-bean name="CaptureRegister"
+			type="com.minicare.form.CaptureRegisterForm" />
+		<form-bean name="CaptureZip"
+			type="com.minicare.form.CaptureZipForm" />
+		<form-bean name="CaptureJobPost"
+			type="com.minicare.form.CaptureJobPostForm" />
+		<form-bean name="CaptureMyProfile"
+			type="com.minicare.form.CaptureMyProfileForm" />
+	</form-beans>
+	<global-forwards>
+		<forward name="successSitter" path="/Sitter/JobSearch.do" />
+		<forward name="successSeeker" path="/Seeker/SitterSearch.do" />
+		<forward name="failure" path="/index.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action path="/Visitor/Login" parameter="/Login.jsp"
+			type="org.apache.struts.actions.ForwardAction" />
+		<action path="/Visitor/Register" parameter="/Register.jsp"
+			type="org.apache.struts.actions.ForwardAction" />
+		<action path="/Sitter/JobSearch" parameter="/JobSearch.jsp"
+			type="org.apache.struts.actions.ForwardAction" />
+		<action path="/Seeker/SitterSearch"
+			parameter="/SitterSearch.jsp"
+			type="org.apache.struts.actions.ForwardAction" />
+		<action path="/Seeker/JobPost" parameter="/JobPost.jsp"
+			type="org.apache.struts.actions.ForwardAction" />
+		<action path="/Seeker/JobApplication"
+			parameter="/JobApplication.jsp"
+			type="org.apache.struts.actions.ForwardAction" />
+		<action path="/Sitter/MyProfile" parameter="/MyProfile.jsp"
+			type="org.apache.struts.actions.ForwardAction" />
+		<action name="CaptureLogin" path="/Visitor/CaptureLogin"
+			validate="true" input="/Visitor/Login.do" scope="request"
+			type="com.minicare.action.CaptureLoginAction">
+		</action>
+		<action path="/Sitter/CaptureApply"	scope="request"
+			type="com.minicare.action.CaptureApplyAction">
+		</action>
+		<action name="CaptureRegister" path="/Visitor/CaptureRegister"
+			validate="true" input="/Visitor/Register.do" scope="request"
+			type="com.minicare.action.CaptureRegisterAction">
+			<forward name="successSeeker"
+				path="/Visitor/Login.do?member=seeker" />
+			<forward name="successSitter"
+				path="/Visitor/Login.do?member=sitter" />
+		</action>
+		<action name="CaptureZip" path="/Seeker/CaptureZip"
+			validate="true" input="/Seeker/SitterSearch.do" scope="request"
+			type="com.minicare.action.CaptureZipAction">
+		</action>
+		<action name="CaptureZip" path="/Sitter/CaptureZip"
+			validate="true" input="/Sitter/JobSearch.do" scope="request"
+			type="com.minicare.action.CaptureZipAction">
+		</action>
+		<action name="CaptureJobPost" path="/Seeker/CaptureJobPost"
+			validate="true" input="/Seeker/JobPost.do" scope="request"
+			type="com.minicare.action.CaptureJobPostAction">
+		</action>
+		<action name="CaptureMyProfile" path="/Sitter/CaptureMyProfile"
+			validate="true" input="/Sitter/MyProfile.do" scope="request"
+			type="com.minicare.action.CaptureMyProfileAction">
+		</action>
+		<action path="/*/Logout"
+			type="com.minicare.action.LogoutAction">
+			<forward name="success" path="/index.jsp" redirect="true"/>
+		</action>
+	</action-mappings>
+	<message-resources
+		parameter="com.minicare.ApplicationResources" />
+		
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config"
+			value="/WEB-INF/struts-tiles.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+	
+</struts-config>
