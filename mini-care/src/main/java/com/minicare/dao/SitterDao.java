@@ -30,7 +30,7 @@ public class SitterDao
 		session.close();
 		return user;
 	}
-	public static List<Sitter> getSitters(String zip)
+	public static List<Sitter> getSitters(Integer zip)
 	{
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session session = sf.openSession();

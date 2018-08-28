@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="http://localhost:8080/mini-care/Style.css"/>
+<link rel="stylesheet" href="../Style.css"/>
 <%
 String member=request.getParameter("member");
 System.out.println(member);
@@ -25,11 +25,8 @@ System.out.println(member);
 <html:submit value="Login"/>
 <html:reset value="Reset"/>
 <br/>
+<a style="color:black" href="../Visitor/Register.do?member=<%=member%>">New user? Register here</a>
 </html:form>
-<form action="../Visitor/Register.do" method="post">
-    <input type="hidden" name="member" value="<%=member%>" />
- <input type="submit" value="New user? Register here"/>
-</form>
 </div>
 </body>
 </html>
